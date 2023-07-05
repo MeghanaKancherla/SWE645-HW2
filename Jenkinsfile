@@ -13,7 +13,7 @@ pipeline{
                     //sh 'jar -cvf newh2.war -C SWE645HW2 .'
                     sh 'echo ${BUILD_TIMESTAMP}'
                     sh "docker login -u $DOCKERHUB_PASS_USR -p $DOCKERHUB_PASS_PSW"
-                    sh 'docker build -t meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP} .'
+                    sh "docker build -t meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP} ."
 
                 }
             }
