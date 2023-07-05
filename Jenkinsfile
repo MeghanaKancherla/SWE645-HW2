@@ -27,7 +27,7 @@ pipeline{
         }
         stage("Deploying to Rancher as single pod") {
             steps{
-                sh 'kubectl set image deployment/node-port container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}'
+                sh 'kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}'
             }
         }
         stage("Deploying to Rancher as load balancer"){
