@@ -28,6 +28,13 @@ pipeline{
         }
         stage("Deploying to Rancher as single pod") {
             steps{
+                def kubeconfigPath = "cluster1.yaml"
+                    
+                    // Set the kubeconfig file path as an environment variable
+                env.KUBECONFIG = kubeconfigPath
+                    
+                    // Verify Rancher connection
+                sh 'kubectl cluster-info'
                 sh "kubectl config get-contexts"
                 //sh "kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}"
             }
