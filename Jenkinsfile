@@ -10,7 +10,7 @@ pipeline{
                     checkout scm
                     
                     sh 'rm -rf *.war'
-                    sh 'jar -cvf h1.war -C /studentsurveyh2 .'
+                    sh 'jar -cvf newh2.war -C SWE645HW2 .'
                     sh 'echo ${BUILD_TIMESTAMP}'
                     sh "docker login -u meghanakancherla -p ${DOCKERHUB_PASS}"
                     sh 'docker build -t meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP} .'
