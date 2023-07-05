@@ -2,8 +2,7 @@ pipeline{
     agent any
     environment {
         DOCKERHUB_PASS = credentials('docker')
-        rancherUrl = ec2-184-73-59-231.compute-1.amazonaws.com/
-        rancherApiToken = token-skt42
+        RANCHER_PASS = credentials('rancher')
     }
     stages {
         stage("Building the Student Survey Image") {
@@ -29,15 +28,16 @@ pipeline{
         }
         stage("Authenticate Rancher") {
             steps{
-                sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 login https://$rancherUrl/v3 — token $rancherApiToken — skip-verify"
+                //sh ""
+                //sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 login https://$rancherUrl/v3 — token $rancherApiToken — skip-verify"
                 //sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 catalog refresh $rancherCatalogName — wait"
                 //sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 app upgrade $rancherAppName $appVersion"
             }
         }
         stage("Deploying to Rancher as single pod") {
             steps{
-
-                sh "kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}"
+                sh "echo kubectl config get-contexts"
+                //sh "kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}"
             }
         }
         stage("Deploying to Rancher as load balancer"){
