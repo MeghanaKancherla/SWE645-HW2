@@ -33,7 +33,7 @@ pipeline{
                     env.KUBECONFIG = kubeconfigPath
                     //sh 'kubectl cluster-info'
                     //sh "kubectl config get-contexts"
-                    sh "kubectl set image cluster1 container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}"
+                    sh "kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP} -n hw2namespace"
                 }
             }
         }
