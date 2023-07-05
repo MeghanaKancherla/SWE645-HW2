@@ -29,7 +29,7 @@ pipeline{
         stage("Deploying to Rancher as single pod") {
             steps{
                 script {
-                    def kubeconfigPath = "hw2-cluster-deploy.yaml"
+                    def kubeconfigPath = "cluster1.yaml"
                     env.KUBECONFIG = kubeconfigPath
                     //sh 'kubectl cluster-info'
                     //sh "kubectl config get-contexts"
