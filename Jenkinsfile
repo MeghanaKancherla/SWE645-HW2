@@ -31,9 +31,9 @@ pipeline{
                 script {
                     def kubeconfigPath = "cluster1.yaml"
                     env.KUBECONFIG = kubeconfigPath
-                    sh 'kubectl cluster-info'
-                    sh "kubectl config get-contexts"
-                    //sh "kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}"
+                    //sh 'kubectl cluster-info'
+                    //sh "kubectl config get-contexts"
+                    sh "kubectl set image deployment/hw2-cluster-deploy container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP}"
                 }
             }
         }
