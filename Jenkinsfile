@@ -26,14 +26,6 @@ pipeline{
                 }
             }
         }
-        stage("Authenticate Rancher") {
-            steps{
-                //sh ""
-                //sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 login https://$rancherUrl/v3 — token $rancherApiToken — skip-verify"
-                //sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 catalog refresh $rancherCatalogName — wait"
-                //sh "docker run — rm -v /tmp:/root/.rancher/ rancher/cli2 app upgrade $rancherAppName $appVersion"
-            }
-        }
         stage("Deploying to Rancher as single pod") {
             steps{
                 sh "echo kubectl config get-contexts"
