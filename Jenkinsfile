@@ -38,6 +38,7 @@ pipeline{
         stage("Deploying to Rancher as load balancer"){
             steps {
                 sh "kubectl set image deployment/hw2-cluster-deploy2 container-0=meghanakancherla/studentsurveyh2:${BUILD_TIMESTAMP} -n hw2namespace"
+                sh "kubectl cluster-info"
             }
         }
     }
