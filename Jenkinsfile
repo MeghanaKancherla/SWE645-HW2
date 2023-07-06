@@ -1,8 +1,8 @@
+// Jenkinsfile
 pipeline{
     agent any
     environment {
         DOCKERHUB_PASS = credentials('docker')
-        RANCHER_PASS = credentials('rancher')
     }
     stages {
         stage("Building the Student Survey Image") {
